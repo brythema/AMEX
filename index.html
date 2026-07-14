@@ -1,0 +1,2755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>AMEX Footwear – Bespoke Leather & Skin</title>
+    <meta name="description" content="AMEX Footwear creates bespoke, handcrafted leather and skin shoes in Nigeria. Premium quality, long-lasting, and designed for style and comfort." />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ===== ROOT ===== */
+        :root {
+            --black: #0e0d0c;
+            --white: #ffffff;
+            --blue-deep: #0a2647;
+            --blue-primary: #1a3a6b;
+            --blue-accent: #2a5a9a;
+            --blue-light: #e8edf5;
+            --blue-bright: #3b7dd8;
+            --gold: #c9a227;
+            --gold-light: #f0e6c8;
+            --tan: #8b5e34;
+            --gray: #3a3733;
+            --muted: #6e6a63;
+            --shadow-sm: 0 2px 12px rgba(10, 38, 71, 0.08);
+            --shadow-md: 0 10px 28px rgba(10, 38, 71, 0.12);
+            --shadow-lg: 0 20px 48px rgba(10, 38, 71, 0.18);
+            --shadow-blue: 0 10px 24px rgba(26, 58, 107, 0.25);
+            --radius: 18px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --safe-b: env(safe-area-inset-bottom, 0px);
+            --safe-t: env(safe-area-inset-top, 0px);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --glass-shadow: 0 8px 32px rgba(10, 38, 71, 0.12);
+            --glass-blur: 12px;
+        }
+
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            body {
+                scroll-behavior: smooth;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        .product-card:focus-visible,
+        .category-card:focus-visible {
+            outline: 2px solid var(--blue-accent);
+            outline-offset: 3px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--black);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== STITCH DIVIDER (luxury detail) ===== */
+        .stitch {
+            width: 64px;
+            height: 10px;
+            margin: 0 auto 1.6rem;
+            background-image: repeating-linear-gradient(90deg, var(--gold) 0 8px, transparent 8px 14px);
+            background-position: center;
+            position: relative;
+        }
+        .stitch::before,
+        .stitch::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+            transform: translateY(-50%);
+        }
+        .stitch::before {
+            left: -10px;
+        }
+        .stitch::after {
+            right: -10px;
+        }
+        .stitch.left {
+            margin: 0 0 1.4rem;
+        }
+
+        /* ===== BUTTONS (refined) ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2.3rem;
+            min-height: 48px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.8px;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            background: none;
+            line-height: 1;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .btn::after {
+            content: '→';
+            display: inline-block;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover::after {
+            transform: translateX(4px);
+        }
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-primary {
+            background: var(--blue-deep);
+            color: var(--white);
+            border-color: var(--blue-deep);
+        }
+        .btn-primary:hover {
+            background: var(--blue-accent);
+            border-color: var(--blue-accent);
+            box-shadow: var(--shadow-blue);
+        }
+
+        .btn-outline {
+            color: var(--blue-deep);
+            border-color: var(--blue-deep);
+        }
+        .btn-outline:hover {
+            background: var(--blue-deep);
+            color: var(--white);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--white);
+            border-color: var(--gold);
+        }
+        .btn-gold:hover {
+            background: var(--blue-deep);
+            border-color: var(--blue-deep);
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background: #1faf52;
+            color: var(--white);
+            border-color: #1faf52;
+        }
+        .btn-whatsapp::after {
+            content: '↗';
+        }
+        .btn-whatsapp:hover {
+            background: #178f42;
+            border-color: #178f42;
+        }
+        .btn-block {
+            width: 100%;
+        }
+        .btn-sm {
+            padding: 0.6rem 1.4rem;
+            font-size: 0.75rem;
+            min-height: 38px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: calc(0.7rem + var(--safe-t)) 0 0.7rem;
+            transition: var(--transition);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
+        }
+        .logo-mark {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            color: var(--blue-deep);
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.1rem;
+        }
+        .logo-mark .af {
+            display: inline-block;
+            background: var(--blue-deep);
+            color: var(--white);
+            padding: 0.1rem 0.5rem 0.1rem 0.55rem;
+            border-radius: 6px;
+            font-size: 1.9rem;
+            line-height: 1.2;
+        }
+        .logo-mark .af span {
+            color: var(--gold-light);
+        }
+        .logo-mark .footprint {
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--gray);
+            margin-left: 0.2rem;
+        }
+        .logo-mark .footprint small {
+            display: block;
+            font-size: 0.5rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 400;
+            margin-top: -2px;
+        }
+        @media (max-width: 480px) {
+            .logo-mark .af {
+                font-size: 1.5rem;
+                padding: 0.05rem 0.35rem 0.05rem 0.4rem;
+            }
+            .logo-mark .footprint {
+                font-size: 0.7rem;
+            }
+            .logo-mark .footprint small {
+                font-size: 0.4rem;
+            }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a.active {
+            color: var(--blue-deep);
+            font-weight: 600;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--blue-deep);
+            padding: 0.3rem 0.2rem;
+        }
+        .cart-badge {
+            position: absolute;
+            top: -6px;
+            right: -10px;
+            background: var(--gold);
+            color: var(--white);
+            font-size: 0.65rem;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--white);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 44px;
+            height: 44px;
+            padding: 0.5rem;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--blue-deep);
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: min(300px, 84vw);
+                height: 100dvh;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(var(--glass-blur));
+                -webkit-backdrop-filter: blur(var(--glass-blur));
+                flex-direction: column;
+                align-items: flex-start;
+                padding: calc(6rem + var(--safe-t)) 2rem 2rem;
+                gap: 1.8rem;
+                box-shadow: var(--shadow-lg);
+                transition: right 0.4s ease;
+                z-index: 999;
+                overflow-y: auto;
+                border-left: 1px solid var(--glass-border);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            .nav-backdrop {
+                position: fixed;
+                inset: 0;
+                background: rgba(10, 38, 71, 0.3);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+                z-index: 998;
+            }
+            .nav-backdrop.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            margin-top: calc(70px + var(--safe-t));
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== HERO SLIDER ===== */
+        .hero-slider {
+            position: relative;
+            height: 88vh;
+            height: 88dvh;
+            min-height: 500px;
+            overflow: hidden;
+            background: var(--blue-deep);
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.1s ease-in-out;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center 30%;
+            filter: brightness(0.45) saturate(1.05);
+            transform: scale(1.06);
+            transition: transform 7s ease;
+        }
+        .slide.active .slide-bg {
+            transform: scale(1);
+        }
+        .slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 38, 71, 0.20) 0%, rgba(10, 38, 71, 0.50) 60%, rgba(10, 38, 71, 0.95) 100%);
+            z-index: 1;
+        }
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 780px;
+            padding: 0 1.5rem;
+            padding-bottom: clamp(2.5rem, 10vh, 5.5rem);
+        }
+        .slide-content .eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .slide-content h2 {
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
+            color: var(--white);
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        .slide-content p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 2rem;
+            opacity: 0.92;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+        }
+        .slide-content .btn {
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        .slide-content .btn:hover {
+            background: var(--blue-deep);
+            color: var(--white);
+        }
+
+        .slide-dots {
+            position: absolute;
+            bottom: 1.4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .slide-dots span {
+            width: 22px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 2px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .slide-dots span.active {
+            background: var(--gold);
+            width: 36px;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            margin-bottom: 0.6rem;
+            color: var(--blue-deep);
+        }
+        .section-eyebrow {
+            display: block;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.4rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 1.4rem;
+            font-size: 1.05rem;
+        }
+
+        /* Glassmorphism containers */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(10, 38, 71, 0.06);
+        }
+
+        /* ===== CATEGORY BENTO CARDS (glass) ===== */
+        .category-bento {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .category-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            background: var(--blue-deep);
+        }
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .category-card:hover img {
+            transform: scale(1.06);
+        }
+        .category-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(10, 38, 71, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: var(--white);
+        }
+        .category-card .overlay h3 {
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .category-card .overlay p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        .category-card .overlay .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-light);
+            background: rgba(255, 255, 255, 0.12);
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            align-self: flex-start;
+            backdrop-filter: blur(4px);
+        }
+        @media (max-width: 600px) {
+            .category-bento {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .category-card {
+                height: 200px;
+            }
+            .category-card .overlay h3 {
+                font-size: 1.4rem;
+            }
+            .category-card .overlay {
+                padding: 1.2rem;
+            }
+        }
+
+        /* ===== PRODUCT GRID ===== */
+        .product-grid-scroll {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .product-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .product-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .product-card:hover img {
+            transform: scale(1.03);
+        }
+        .product-card-body {
+            padding: 1.2rem 1.2rem 1.4rem;
+        }
+        .product-card-body h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+            color: var(--blue-deep);
+        }
+        .product-card-body p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+        .product-card-body .btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.7rem;
+            min-height: 34px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .filter-btn {
+            padding: 0.6rem 1.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--blue-deep);
+            color: var(--white);
+            border-color: var(--blue-deep);
+        }
+
+        /* ===== ABOUT US ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 380px;
+        }
+        .about-content h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            color: var(--blue-deep);
+            margin-bottom: 0.8rem;
+        }
+        .about-content .lead {
+            font-size: 1.15rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+        }
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .about-content .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .about-content .feature-list li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+            color: var(--blue-deep);
+            font-size: 0.95rem;
+        }
+        .about-content .feature-list li i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+        .about-content .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .about-image img {
+                min-height: 240px;
+            }
+            .about-content .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== CUSTOM BUILD FORM (glass) ===== */
+        .custom-form-wrapper {
+            max-width: 720px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(10, 38, 71, 0.08);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+        }
+        .option-btn {
+            padding: 0.7rem 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-align: center;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+        .option-btn:hover {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .option-btn.selected {
+            border-color: var(--gold);
+            background: var(--blue-deep);
+            color: white;
+            box-shadow: var(--shadow-blue);
+        }
+        .option-btn.selected:hover {
+            background: var(--blue-accent);
+        }
+        @media (max-width: 480px) {
+            .option-btn {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.3rem;
+                min-height: 40px;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--blue-deep);
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        .form-group select:focus,
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* ===== CART ===== */
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .cart-item {
+            display: flex;
+            gap: 1.2rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 1.2rem;
+            border-radius: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .cart-item img {
+            width: 84px;
+            height: 84px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .cart-item-details {
+            flex: 1;
+            min-width: 140px;
+        }
+        .cart-item-details h4 {
+            font-size: 1rem;
+            color: var(--blue-deep);
+            margin-bottom: 0.2rem;
+        }
+        .cart-item-details p {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+        .cart-item-remove {
+            color: #c00;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        .cart-item-remove:hover {
+            background: #fee;
+        }
+
+        .whatsapp-checkout {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .message-preview {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 1.2rem;
+            border-radius: 12px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin-top: 1.2rem;
+            text-align: left;
+            max-height: 200px;
+            overflow-y: auto;
+            color: var(--gray);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 38, 71, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 1rem;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 28px;
+            max-width: 960px;
+            width: 100%;
+            max-height: 92vh;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2.2rem;
+            cursor: pointer;
+            z-index: 10;
+            color: var(--gray);
+            transition: var(--transition);
+            background: none;
+            border: none;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .modal img {
+            width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .modal {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+                padding: 1.2rem;
+                max-height: 96vh;
+            }
+            .modal img {
+                max-height: 260px;
+                object-fit: cover;
+            }
+        }
+
+        .color-options,
+        .size-options {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin: 0.8rem 0 1.2rem;
+        }
+        .color-swatch {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .color-swatch.active {
+            border-color: var(--gold);
+            transform: scale(1.15);
+            box-shadow: var(--shadow-blue);
+        }
+        .size-box {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            min-width: 44px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+        }
+        .size-box.active,
+        .size-box:hover {
+            border-color: var(--gold);
+            background: var(--blue-deep);
+            color: var(--white);
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .qty-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .qty-btn:hover {
+            border-color: var(--gold);
+            background: var(--blue-deep);
+            color: var(--white);
+        }
+        .qty-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            min-width: 32px;
+            text-align: center;
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: rgba(10, 38, 71, 0.9);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--white);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            z-index: 3000;
+            opacity: 0;
+            transition: 0.4s ease;
+            box-shadow: var(--shadow-lg);
+            font-weight: 500;
+            font-size: 0.9rem;
+            max-width: 90vw;
+            text-align: center;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: calc(1.6rem + var(--safe-b));
+            right: 1.6rem;
+            background: #25d366;
+            color: var(--white);
+            min-width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0;
+            font-size: 1.7rem;
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            z-index: 999;
+            border: none;
+            cursor: pointer;
+        }
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+            animation: wa-pulse 2.4s ease-out infinite;
+        }
+        @keyframes wa-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+            }
+        }
+        .whatsapp-float .wa-label {
+            display: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            padding-right: 1.2rem;
+            white-space: nowrap;
+        }
+        @media (min-width: 900px) {
+            .whatsapp-float:hover {
+                padding: 0 1.4rem 0 1.2rem;
+            }
+            .whatsapp-float:hover .wa-label {
+                display: inline;
+            }
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.06);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--blue-deep);
+            color: var(--white);
+            padding: 4rem 0 calc(2rem + var(--safe-b));
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .footer-grid h4 {
+            color: var(--gold-light);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+        .footer-grid a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.6rem;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        .footer-grid a:hover {
+            color: var(--gold);
+        }
+        .footer-grid p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .footer-grid .flag-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold-light);
+            margin-top: 0.5rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+        .copyright .ng-flag {
+            display: inline-block;
+            background: linear-gradient(90deg, #008751 33%, #fff 33% 66%, #008751 66%);
+            width: 20px;
+            height: 14px;
+            border-radius: 2px;
+            vertical-align: middle;
+            margin: 0 4px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-slider {
+                min-height: 400px;
+            }
+            .section {
+                padding: 3rem 0;
+            }
+            .container {
+                padding: 0 1.2rem;
+            }
+            .custom-form-wrapper {
+                padding: 1.5rem 1rem;
+            }
+        }
+        @media (max-width: 420px) {
+            .product-grid-scroll {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            .product-card img {
+                height: 150px;
+            }
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            header,
+            .hero-slider,
+            .whatsapp-float,
+            .btn,
+            .hamburger,
+            .modal-overlay,
+            .toast,
+            .mobile-order-bar {
+                display: none !important;
+            }
+            body {
+                background: white;
+                color: black;
+                font-size: 12pt;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .page {
+                display: block !important;
+                animation: none;
+            }
+            .product-grid-scroll {
+                display: block;
+            }
+            .product-card {
+                break-inside: avoid;
+                margin-bottom: 1rem;
+                border: 1px solid #ccc;
+            }
+            .whatsapp-checkout::after {
+                content: "Order via WhatsApp: +234 906 334 7739";
+                display: block;
+                font-weight: bold;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="header-inner">
+            <div class="logo-wrapper" data-page="home" role="button" tabindex="0">
+                <div class="logo-mark">
+                    <span class="af">A<span>F</span></span>
+                    <span class="footprint">
+                        A FOOTPRINT
+                        <small>in global fashion</small>
+                    </span>
+                </div>
+            </div>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#" data-page="home" class="active">Home</a>
+                <a href="#" data-page="slippers">Slippers</a>
+                <a href="#" data-page="sandals">Sandals</a>
+                <a href="#" data-page="shoes">Shoes</a>
+                <a href="#" data-page="newarrivals">New Arrivals</a>
+                <a href="#" data-page="about">About</a>
+                <a href="#" data-page="cart" class="cart-icon">
+                    🛒 <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+            </nav>
+            <div class="nav-backdrop" id="navBackdrop"></div>
+        </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ==================== HOME ==================== -->
+        <div id="home" class="page active">
+            <div class="hero-slider" id="homeSlider"></div>
+
+            <!-- Category Bento Cards -->
+            <section class="section bg-white">
+                <div class="container">
+                    <span class="section-eyebrow">Collections</span>
+                    <h2 class="section-title">Find Your Fit</h2>
+                    <div class="stitch"></div>
+                    <p class="section-subtitle">Explore our curated categories — each piece crafted with precision and passion.</p>
+                    <div class="category-bento">
+                        <div class="category-card" data-page="slippers" tabindex="0">
+                            <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Slippers" loading="lazy" />
+                            <div class="overlay">
+                                <span class="tag">Comfort</span>
+                                <h3>Slippers</h3>
+                                <p>Relaxed elegance for home and leisure.</p>
+                            </div>
+                        </div>
+                        <div class="category-card" data-page="sandals" tabindex="0">
+                            <img src="https://images.unsplash.com/photo-1625563206627-7e713d1ac0a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D" alt="Sandals" loading="lazy" />
+                            <div class="overlay">
+                                <span class="tag">Breezy</span>
+                                <h3>Sandals</h3>
+                                <p>Light, stylish, and endlessly versatile.</p>
+                            </div>
+                        </div>
+                        <div class="category-card" data-page="shoes" tabindex="0">
+                            <img src="https://images.unsplash.com/photo-1673643044544-5bc09bdfd589?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fEhBTkQlMjBtYWRlJTIwbWVuJTIwc2FuZGFsfGVufDB8fDB8fHww" alt="Shoes" loading="lazy" />
+                            <div class="overlay">
+                                <span class="tag">Sharp</span>
+                                <h3>Shoes</h3>
+                                <p>Classic silhouettes with modern confidence.</p>
+                            </div>
+                        </div>
+                        <div class="category-card" data-page="newarrivals" tabindex="0">
+                            <img src="https://images.unsplash.com/photo-1753346426105-988a9e3c4aa5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fEhBTkQlMjBtYWRlJTIwc2FuZGFsfGVufDB8fDB8fHww" alt="New Arrivals" loading="lazy" />
+                            <div class="overlay">
+                                <span class="tag">Fresh</span>
+                                <h3>New Arrivals</h3>
+                                <p>The latest designs, just in.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Teaser (glass) -->
+            <section class="section bg-light" id="about-teaser">
+                <div class="container">
+                    <div class="about-grid">
+                        <div class="about-image glass-card-light" style="padding:0.5rem;">
+                            <img src="https://images.unsplash.com/photo-1666204575077-6334feaada85?w=800&h=600&fit=crop&auto=format&q=80" alt="AMEX Footwear handcrafted leather shoes" loading="lazy" />
+                        </div>
+                        <div class="about-content glass-card-light" style="padding:2rem;">
+                            <span class="section-eyebrow" style="text-align:left;">Crafted in Nigeria</span>
+                            <h2>Bespoke Footwear,<br />Original Leather &amp; Skin</h2>
+                            <p class="lead">Every pair tells a story of heritage, skill, and an uncompromising commitment to quality.</p>
+                            <p>At AMEX, we don't just make shoes — we create heirlooms. Using only the finest original leather and skin, each piece is handcrafted by master artisans in Abuja, blending traditional techniques with contemporary design. Our footwear is built to last, designed to be loved, and made for those who refuse to compromise.</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> 100% Genuine Leather</li>
+                                <li><i class="fas fa-check-circle"></i> Handcrafted in Abuja</li>
+                                <li><i class="fas fa-check-circle"></i> Long-lasting Durability</li>
+                                <li><i class="fas fa-check-circle"></i> Bespoke &amp; Custom Fit</li>
+                            </ul>
+                            <div class="btn-group">
+                                <a href="#" data-page="about" class="btn btn-primary">Our Story <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+                                <a href="https://wa.me/2349063347739" target="_blank" class="btn btn-whatsapp">Order via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Custom Build Section -->
+            <section class="section bg-white" id="custom-build">
+                <div class="container">
+                    <span class="section-eyebrow">Bespoke Service</span>
+                    <h2 class="section-title">Do you want a custom build?</h2>
+                    <div class="stitch"></div>
+                    <p class="section-subtitle" style="max-width:700px;">Let's create your dream footwear. Tell us what you need, and we'll start the conversation on WhatsApp.</p>
+
+                    <div class="custom-form-wrapper">
+                        <form id="customForm" onsubmit="submitCustomOrder(event)">
+                            <!-- Type -->
+                            <div class="form-group">
+                                <label>Type of Footwear <span style="color:#c00;">*</span></label>
+                                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:0.7rem;">
+                                    <button type="button" class="option-btn" data-value="Sandal" onclick="selectOption(this)">🩰 Sandal</button>
+                                    <button type="button" class="option-btn" data-value="Slippers" onclick="selectOption(this)">🩴 Slippers</button>
+                                    <button type="button" class="option-btn" data-value="Shoes" onclick="selectOption(this)">👞 Shoes</button>
+                                    <button type="button" class="option-btn" data-value="Loafers" onclick="selectOption(this)">👟 Loafers</button>
+                                    <button type="button" class="option-btn" data-value="Other" onclick="selectOption(this)">✨ Other</button>
+                                </div>
+                                <input type="hidden" id="footwearType" required />
+                                <p id="typeError" style="color:#c00;font-size:0.8rem;margin-top:0.3rem;display:none;">Please select a type</p>
+                            </div>
+
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+                                <div class="form-group">
+                                    <label>Size <span style="color:#c00;">*</span></label>
+                                    <select id="footwearSize" required>
+                                        <option value="">Select size</option>
+                                        <option value="36">36</option><option value="37">37</option><option value="38">38</option>
+                                        <option value="39">39</option><option value="40">40</option><option value="41">41</option>
+                                        <option value="42">42</option><option value="43">43</option><option value="44">44</option>
+                                        <option value="45">45</option><option value="46">46</option>
+                                        <option value="Custom (bespoke)">Custom (bespoke)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Colour <span style="color:#c00;">*</span></label>
+                                    <select id="footwearColour" required>
+                                        <option value="">Select colour</option>
+                                        <option value="Black">Black</option>
+                                        <option value="Brown">Brown</option>
+                                        <option value="Tan">Tan</option>
+                                        <option value="Wine">Wine</option>
+                                        <option value="Cream">Cream</option>
+                                        <option value="White">White</option>
+                                        <option value="Navy">Navy</option>
+                                        <option value="Blush">Blush</option>
+                                        <option value="Gold">Gold</option>
+                                        <option value="Custom (specify below)">Custom (specify below)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Material Type <span style="color:#c00;">*</span></label>
+                                <select id="leatherType" required>
+                                    <option value="">Select material</option>
+                                    <option value="Smooth Leather">Smooth Leather</option>
+                                    <option value="Smooth Skin">Smooth Skin</option>
+                                    <option value="Patent Leather">Patent Leather</option>
+                                    <option value="Patent Skin">Patent Skin</option>
+                                    <option value="Suede">Suede</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Design Details &amp; Special Requests</label>
+                                <textarea id="customDetails" rows="3" placeholder="Describe your dream footwear — heel height, sole type, embellishments, stitching, any specific design elements..."></textarea>
+                            </div>
+
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+                                <div class="form-group">
+                                    <label>Your Name <span style="color:#c00;">*</span></label>
+                                    <input type="text" id="customerName" required placeholder="e.g. Chidi Okonkwo" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number <span style="color:#c00;">*</span></label>
+                                    <input type="tel" id="customerPhone" required placeholder="e.g. 08012345678" />
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1.8rem;padding:1.1rem;font-size:1rem;background:var(--blue-deep);border-color:var(--blue-deep);">
+                                <i class="fab fa-whatsapp" style="margin-right:0.7rem;font-size:1.3rem;"></i> Send Request on WhatsApp
+                            </button>
+                            <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:0.6rem;">
+                                You'll be redirected to WhatsApp with all your details pre-filled.
+                                <br />We'll follow up with design concepts and request any reference images.
+                            </p>
+                        </form>
+                        <div id="customSuccess" style="display:none;text-align:center;padding:1.5rem;">
+                            <div style="font-size:3rem;color:var(--gold);">📤</div>
+                            <h3 style="color:var(--blue-deep);margin:0.6rem 0;">Opening WhatsApp...</h3>
+                            <p style="color:var(--gray);">Your custom build request is ready. You'll be redirected to WhatsApp to send the message.</p>
+                            <p style="color:var(--muted);font-size:0.9rem;margin-top:0.8rem;">
+                                If WhatsApp doesn't open, <a href="#" id="waFallbackLink" style="color:var(--gold);font-weight:600;">click here</a> to try again.
+                            </p>
+                            <button class="btn btn-outline" style="margin-top:1.2rem;" onclick="resetCustomForm()">← Send another request</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== SLIPPERS ==================== -->
+        <div id="slippers" class="page">
+            <div class="hero-slider" id="slippersSlider"></div>
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Slippers Collection</h2>
+                    <div class="stitch"></div>
+                    <p class="section-subtitle">Comfort reimagined — for men and women.</p>
+                    <div class="filter-bar" id="slippersFilter">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="men">Men</button>
+                        <button class="filter-btn" data-filter="women">Women</button>
+                    </div>
+                    <div class="product-grid-scroll" id="slippersGrid"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== SANDALS ==================== -->
+        <div id="sandals" class="page">
+            <div class="hero-slider" id="sandalsSlider"></div>
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Sandals Collection</h2>
+                    <div class="stitch"></div>
+                    <p class="section-subtitle">Light, breathable, and stylish — for every step.</p>
+                    <div class="filter-bar" id="sandalsFilter">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="men">Men</button>
+                        <button class="filter-btn" data-filter="women">Women</button>
+                    </div>
+                    <div class="product-grid-scroll" id="sandalsGrid"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== SHOES ==================== -->
+        <div id="shoes" class="page">
+            <div class="hero-slider" id="shoesSlider"></div>
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Shoes Collection</h2>
+                    <div class="stitch"></div>
+                    <p class="section-subtitle">Sharp, timeless, and built to last.</p>
+                    <div class="filter-bar" id="shoesFilter">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="men">Men</button>
+                        <button class="filter-btn" data-filter="women">Women</button>
+                    </div>
+                    <div class="product-grid-scroll" id="shoesGrid"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== NEW ARRIVALS ==================== -->
+        <div id="newarrivals" class="page">
+            <div class="hero-slider" id="newarrivalsSlider"></div>
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">New Arrivals</h2>
+                    <div class="stitch"></div>
+                    <p class="section-subtitle">The latest designs, fresh off the workbench.</p>
+                    <div class="filter-bar" id="newarrivalsFilter">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="men">Men</button>
+                        <button class="filter-btn" data-filter="women">Women</button>
+                    </div>
+                    <div class="product-grid-scroll" id="newarrivalsGrid"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== ABOUT ==================== -->
+        <div id="about" class="page">
+            <section class="section" style="padding-top:2rem;">
+                <div class="container">
+                    <div class="about-grid" style="grid-template-columns:1fr 1fr;gap:4rem;">
+                        <div class="about-content glass-card-light" style="padding:2rem;">
+                            <span class="section-eyebrow" style="text-align:left;">Our Story</span>
+                            <h2 style="font-size:clamp(2rem,3.5vw,3.2rem);">Bespoke Footwear,<br />Handcrafted with Integrity</h2>
+                            <div class="stitch left"></div>
+                            <p class="lead">AMEX Footwear was born from a simple belief: that the shoes you wear should tell a story of quality, heritage, and personal style.</p>
+                            <p>Founded in Abuja, Nigeria, we set out to create footwear that rivals the best in the world — using only the finest original leather and skin, sourced responsibly and crafted with care. Every pair of AMEX shoes is handcrafted by skilled artisans who pour decades of experience into each stitch, each cut, each finish.</p>
+                            <p>We believe in longevity. In a world of fast fashion, we choose to make shoes that last — that become more comfortable with time, that develop a patina unique to the wearer, that stand as a testament to the art of shoemaking.</p>
+                            <p><strong>We don't just make shoes. We make heirlooms.</strong></p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> 100% Genuine Leather &amp; Skin</li>
+                                <li><i class="fas fa-check-circle"></i> Handcrafted in Abuja, Nigeria</li>
+                                <li><i class="fas fa-check-circle"></i> Built for Longevity</li>
+                                <li><i class="fas fa-check-circle"></i> Bespoke &amp; Custom Orders</li>
+                                <li><i class="fas fa-check-circle"></i> Ethically Sourced Materials</li>
+                                <li><i class="fas fa-check-circle"></i> Proudly Nigerian</li>
+                            </ul>
+                            <div class="btn-group">
+                                <a href="https://wa.me/2349063347739" target="_blank" class="btn btn-primary">Order Now <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+                                <a href="#" data-page="home" class="btn btn-outline">Browse Collections</a>
+                            </div>
+                        </div>
+                        <div class="about-image">
+                            <img src="https://images.unsplash.com/photo-1618615099274-74390671e44b?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AMEX Footwear leather shoes craftsmanship" loading="lazy" />
+                            <div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                                <img src="https://images.unsplash.com/photo-1618615099365-8330e38d5d57?w=400&h=300&fit=crop&auto=format&q=80" alt="Leather detail" style="border-radius:12px;width:100%;height:160px;object-fit:cover;" loading="lazy" />
+                                <img src="https://images.unsplash.com/photo-1677922336239-d6978d0d2af2?w=400&h=300&fit=crop&auto=format&q=80" alt="Sandals craftsmanship" style="border-radius:12px;width:100%;height:160px;object-fit:cover;" loading="lazy" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section bg-light">
+                <div class="container">
+                    <span class="section-eyebrow">Why AMEX</span>
+                    <h2 class="section-title">Our Core Values</h2>
+                    <div class="stitch"></div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.8rem;">
+                        <div class="glass-card-light" style="text-align:center;padding:2rem;">
+                            <div style="font-size:2.5rem;color:var(--gold);">🛠️</div>
+                            <h4 style="color:var(--blue-deep);margin:0.8rem 0 0.4rem;">Artisan Craftsmanship</h4>
+                            <p style="color:var(--muted);font-size:0.9rem;">Every shoe is handcrafted by master artisans with years of experience.</p>
+                        </div>
+                        <div class="glass-card-light" style="text-align:center;padding:2rem;">
+                            <div style="font-size:2.5rem;color:var(--gold);">🌿</div>
+                            <h4 style="color:var(--blue-deep);margin:0.8rem 0 0.4rem;">Ethical Sourcing</h4>
+                            <p style="color:var(--muted);font-size:0.9rem;">We source only the finest leather and skin from responsible suppliers.</p>
+                        </div>
+                        <div class="glass-card-light" style="text-align:center;padding:2rem;">
+                            <div style="font-size:2.5rem;color:var(--gold);">⏳</div>
+                            <h4 style="color:var(--blue-deep);margin:0.8rem 0 0.4rem;">Built to Last</h4>
+                            <p style="color:var(--muted);font-size:0.9rem;">Designed for durability, our footwear only gets better with age.</p>
+                        </div>
+                        <div class="glass-card-light" style="text-align:center;padding:2rem;">
+                            <div style="font-size:2.5rem;color:var(--gold);">🇳🇬</div>
+                            <h4 style="color:var(--blue-deep);margin:0.8rem 0 0.4rem;">Proudly Nigerian</h4>
+                            <p style="color:var(--muted);font-size:0.9rem;">Made in Abuja with love, skill, and a deep pride in our heritage.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== CART ==================== -->
+        <div id="cart" class="page">
+            <div class="container section">
+                <h2 class="section-title">Your Selection</h2>
+                <div class="stitch"></div>
+                <div id="cartItemsContainer" class="cart-items"></div>
+                <div class="whatsapp-checkout" id="cartCheckout"></div>
+            </div>
+        </div>
+
+        <!-- ==================== PRODUCT DETAIL ==================== -->
+        <div id="product" class="page">
+            <div class="container section" id="productDetailContainer"></div>
+        </div>
+
+    </main>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/2349063347739" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        💬<span class="wa-label">Chat with us</span>
+    </a>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>AMEX Footwear</h4>
+                    <p>Bespoke leather and skin footwear handcrafted in Abuja, Nigeria. We create shoes that tell a story — of quality, heritage, and timeless style.</p>
+                    <div class="flag-badge">🇳🇬 Proudly Nigerian</div>
+                </div>
+                <div>
+                    <h4>Collections</h4>
+                    <a href="#" data-page="slippers">Slippers</a>
+                    <a href="#" data-page="sandals">Sandals</a>
+                    <a href="#" data-page="shoes">Shoes</a>
+                    <a href="#" data-page="newarrivals">New Arrivals</a>
+                    <a href="#" data-page="about">About Us</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p>📍 Abuja, Nigeria</p>
+                    <p>💬 +234 906 334 7739</p>
+                    <p>📧 hello@amexfootwear.ng</p>
+                </div>
+                <div>
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="margin-top:1rem;font-size:0.85rem;">Join our community for style inspiration and exclusive updates.</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 AMEX Footwear. All rights reserved.
+                <span class="ng-flag"></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- ===== SCRIPT ===== -->
+    <!-- ============================================================ -->
+    <script>
+        // ============================================================
+        // PRODUCT DATA (with your new images - prices removed)
+        // ============================================================
+        const products = [{
+            id: 1,
+            category: 'slippers',
+            name: 'AMEX Urban Slide',
+            short: 'Premium leather slipper for everyday comfort.',
+            story: 'Handcrafted from genuine leather, the Urban Slide blends laid‑back elegance with everyday durability. Soft inner sole, anti‑slip outsole.',
+            colors: ['Black', 'Brown', 'Wine', 'Cream'],
+            sizes: [38, 39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1603487742131-4160ec999306?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                'https://images.unsplash.com/photo-1625318880248-a7cc6bcf0c0f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'male'
+        }, {
+            id: 2,
+            category: 'slippers',
+            name: 'AMEX Classic Mule',
+            short: 'Effortless style for home and beyond.',
+            story: 'A timeless mule silhouette with a cushioned footbed that molds to your foot. Perfect for relaxed weekends.',
+            colors: ['Black', 'Brown'],
+            sizes: [39, 40, 41, 42, 43],
+            images: [
+                'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&auto=format&fit=crop&q=60',
+                'https://images.unsplash.com/photo-1585120824848-8a5cd41493d2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fEhBTkQlMjBtYWRlJTIwc2FuZGFsfGVufDB8fDB8fHww'
+            ],
+            gender: 'male'
+        }, {
+            id: 3,
+            category: 'slippers',
+            name: 'AMEX Executive Loafer',
+            short: 'Sophisticated slipper for the modern man.',
+            story: 'A refined take on the classic slipper. Leather upper, memory foam insole, and a sleek silhouette.',
+            colors: ['Black', 'Tan', 'Wine'],
+            sizes: [39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1560611346-3493e0583354?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjA5fHxIQU5EJTIwbWFkZSUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1603487742131-4160ec999306?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            ],
+            gender: 'male'
+        }, {
+            id: 4,
+            category: 'slippers',
+            name: 'AMEX Heritage Slide',
+            short: 'Classic design, modern comfort.',
+            story: 'Inspired by traditional Nigerian craftsmanship, this slide features hand-stitched details and premium leather.',
+            colors: ['Brown', 'Black', 'Cream'],
+            sizes: [38, 39, 40, 41, 42, 43],
+            images: [
+                'https://images.unsplash.com/photo-1625318880248-a7cc6bcf0c0f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1585120824848-8a5cd41493d2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fEhBTkQlMjBtYWRlJTIwc2FuZGFsfGVufDB8fDB8fHww'
+            ],
+            gender: 'male'
+        }, {
+            id: 5,
+            category: 'slippers',
+            name: 'AMEX Luxe Slide',
+            short: 'Luxury meets comfort in every step.',
+            story: 'The Luxe Slide is crafted from the finest leather with a plush footbed and a sophisticated finish.',
+            colors: ['Black', 'Wine', 'Brown'],
+            sizes: [39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1560611346-3493e0583354?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjA5fHxIQU5EJTIwbWFkZSUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1603487742131-4160ec999306?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            ],
+            gender: 'male'
+        }, {
+            id: 6,
+            category: 'slippers',
+            name: 'AMEX Grace Mule',
+            short: 'Elegant slip-on for the discerning woman.',
+            story: 'Graceful and comfortable, this mule features a soft leather upper and a cushioned footbed.',
+            colors: ['Black', 'Cream', 'Wine', 'Gold'],
+            sizes: [36, 37, 38, 39, 40, 41],
+            images: [
+                'https://images.unsplash.com/photo-1618615098938-84fc29796e76?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                'https://images.unsplash.com/photo-1777979926350-bd684446744b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8'
+            ],
+            gender: 'female'
+        }, {
+            id: 7,
+            category: 'slippers',
+            name: 'AMEX Serene Slide',
+            short: 'Minimalist elegance for everyday wear.',
+            story: 'Clean lines, premium leather, and a soft footbed make this slide a wardrobe staple.',
+            colors: ['Black', 'Tan', 'Blush'],
+            sizes: [36, 37, 38, 39, 40, 41],
+            images: [
+                'https://images.unsplash.com/photo-1627388484741-74dcc56ec343?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D',
+                'https://images.unsplash.com/photo-1618615098938-84fc29796e76?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            ],
+            gender: 'female'
+        }, {
+            id: 8,
+            category: 'slippers',
+            name: 'AMEX Pearl Slipper',
+            short: 'Luxurious slipper with pearl accents.',
+            story: 'A touch of glamour meets everyday comfort. Handcrafted with fine leather and delicate pearl detailing.',
+            colors: ['White', 'Cream', 'Black'],
+            sizes: [36, 37, 38, 39, 40],
+            images: [
+                'https://images.unsplash.com/photo-1618615099274-74390671e44b?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                'https://images.unsplash.com/photo-1777979926350-bd684446744b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8'
+            ],
+            gender: 'female'
+        }, {
+            id: 9,
+            category: 'slippers',
+            name: 'AMEX Bloom Slide',
+            short: 'Floral-inspired elegance for the modern woman.',
+            story: 'Soft leather with subtle floral embossing. Comfortable, stylish, and uniquely AMEX.',
+            colors: ['Blush', 'Black', 'Wine'],
+            sizes: [36, 37, 38, 39, 40, 41],
+            images: [
+                'https://images.unsplash.com/photo-1742390671637-19d78e16cb37?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzA5fHxIQU5EJTIwbWFkZSUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1618615099274-74390671e44b?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            ],
+            gender: 'female'
+        }, {
+            id: 10,
+            category: 'slippers',
+            name: 'AMEX Velvet Mule',
+            short: 'Plush velvet for a touch of luxury.',
+            story: 'Velvet upper with a soft leather lining and a cushioned sole. Perfect for lounging in style.',
+            colors: ['Black', 'Wine', 'Navy'],
+            sizes: [36, 37, 38, 39, 40],
+            images: [
+                'https://images.unsplash.com/photo-1627388484741-74dcc56ec343?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D',
+                'https://images.unsplash.com/photo-1742390671637-19d78e16cb37?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzA5fHxIQU5EJTIwbWFkZSUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'female'
+        }, {
+            id: 11,
+            category: 'sandals',
+            name: 'AMEX Executive Sandal',
+            short: 'Elegant leather sandal for any occasion.',
+            story: 'Genuine leather straps, soft footbed, and a flexible outsole. Suitable for casual and semi-formal events.',
+            colors: ['Black', 'Brown', 'Wine', 'Tan'],
+            sizes: [38, 39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1625563206627-7e713d1ac0a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1666204575077-6334feaada85?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM5fHxIQU5EJTIwbWFkZSUyMG1lbiUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 12,
+            category: 'sandals',
+            name: 'AMEX Lagos Walker',
+            short: 'Built for the urban explorer.',
+            story: 'Breathable straps, cushioned sole, and a lightweight build for all-day city comfort.',
+            colors: ['Black', 'Tan', 'Brown'],
+            sizes: [39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1628626126093-97c2c464ca5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHNhbmRhbCUyMHNsaXBwZXJzfGVufDB8fDB8fHww',
+                'https://images.unsplash.com/photo-1615197421679-fe595ea9081c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzR8fHNhbmRhbCUyMHNsaXBwZXJzfGVufDB8fDB8fHww'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 13,
+            category: 'sandals',
+            name: 'AMEX Heritage Sandal',
+            short: 'Traditional design, modern comfort.',
+            story: 'Inspired by Nigerian heritage, this sandal features handwoven leather and a cushioned footbed.',
+            colors: ['Brown', 'Black', 'Cream'],
+            sizes: [38, 39, 40, 41, 42, 43],
+            images: [
+                'https://images.unsplash.com/photo-1662308074084-8e2d73c353e6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQwfHxIQU5EJTIwbWFkZSUyMG1lbiUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1628626126093-97c2c464ca5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHNhbmRhbCUyMHNsaXBwZXJzfGVufDB8fDB8fHww'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 14,
+            category: 'sandals',
+            name: 'AMEX Coastal Sandal',
+            short: 'Lightweight and breezy for warm days.',
+            story: 'Perfect for the beach or the city. Soft leather straps and a durable sole.',
+            colors: ['Tan', 'Brown', 'White'],
+            sizes: [38, 39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1666204575077-6334feaada85?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM5fHxIQU5EJTIwbWFkZSUyMG1lbiUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1615197421679-fe595ea9081c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzR8fHNhbmRhbCUyMHNsaXBwZXJzfGVufDB8fDB8fHww'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 15,
+            category: 'sandals',
+            name: 'AMEX Luxe Gladiator',
+            short: 'Bold, elegant, and handcrafted.',
+            story: 'Multi-strap leather sandal with a sleek finish and a comfortable footbed.',
+            colors: ['Black', 'Gold', 'Brown'],
+            sizes: [38, 39, 40, 41, 42],
+            images: [
+                'https://images.unsplash.com/photo-1628626126093-97c2c464ca5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHNhbmRhbCUyMHNsaXBwZXJzfGVufDB8fDB8fHww',
+                'https://images.unsplash.com/photo-1625563206627-7e713d1ac0a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 16,
+            category: 'shoes',
+            name: 'AMEX Oxford Brogue',
+            short: 'Classic brogue with a modern edge.',
+            story: 'Hand‑finished leather upper with intricate perforations. Leather lining and durable sole.',
+            colors: ['Black', 'Brown'],
+            sizes: [39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1673643044544-5bc09bdfd589?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fEhBTkQlMjBtYWRlJTIwbWVuJTIwc2FuZGFsfGVufDB8fDB8fHww',
+                'https://images.unsplash.com/photo-1669634704992-ea28b589bc0b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM4fHxIQU5EJTIwbWFkZSUyMG1lbiUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'male'
+        }, {
+            id: 17,
+            category: 'shoes',
+            name: 'AMEX Minimal Sneaker',
+            short: 'Clean, timeless sneaker for daily wear.',
+            story: 'Premium canvas with leather trim, lightweight sole, and a silhouette that pairs with anything.',
+            colors: ['White', 'Black', 'Gray'],
+            sizes: [38, 39, 40, 41, 42, 43],
+            images: [
+                'https://images.unsplash.com/photo-1676121270762-47c8d3a7b9d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjA2fHxIQU5EJTIwbWFkZSUyMG1lbiUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1641893843833-a006778dc00b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGFuZG1hZGUlMjBzaG9lc3xlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'male'
+        }, {
+            id: 18,
+            category: 'shoes',
+            name: 'AMEX Derby Shoe',
+            short: 'Versatile derby with a refined silhouette.',
+            story: 'Open-lacing derby shoe in premium leather. Perfect for the office or a night out.',
+            colors: ['Brown', 'Black', 'Tan'],
+            sizes: [39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1669634704992-ea28b589bc0b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM4fHxIQU5EJTIwbWFkZSUyMG1lbiUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1673643044544-5bc09bdfd589?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fEhBTkQlMjBtYWRlJTIwbWVuJTIwc2FuZGFsfGVufDB8fDB8fHww'
+            ],
+            gender: 'male'
+        }, {
+            id: 19,
+            category: 'shoes',
+            name: 'AMEX Chelsea Boot',
+            short: 'Sleek ankle boot with elastic panels.',
+            story: 'Crafted from fine leather with a comfortable fit and a durable sole. A modern classic.',
+            colors: ['Black', 'Brown', 'Wine'],
+            sizes: [39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1676121270762-47c8d3a7b9d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjA2fHxIQU5EJTIwbWFkZSUyMG1lbiUyMHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1641893843833-a006778dc00b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGFuZG1hZGUlMjBzaG9lc3xlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'male'
+        }, {
+            id: 20,
+            category: 'shoes',
+            name: 'AMEX Monk Strap',
+            short: 'Distinctive double-strap monk shoe.',
+            story: 'Bold and sophisticated, this monk strap shoe features polished leather and a sleek last.',
+            colors: ['Brown', 'Black'],
+            sizes: [39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1641893843833-a006778dc00b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGFuZG1hZGUlMjBzaG9lc3xlbnwwfHwwfHx8MA%3D%3D',
+                'https://images.unsplash.com/photo-1673643044544-5bc09bdfd589?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fEhBTkQlMjBtYWRlJTIwbWVuJTIwc2FuZGFsfGVufDB8fDB8fHww'
+            ],
+            gender: 'male'
+        }, {
+            id: 21,
+            category: 'shoes',
+            name: 'AMEX Elegance Pump',
+            short: 'Classic pump with a modern silhouette.',
+            story: 'A timeless heel crafted from premium leather. Comfortable, elegant, and versatile.',
+            colors: ['Black', 'Nude', 'Wine'],
+            sizes: [36, 37, 38, 39, 40, 41],
+            images: [
+                'https://images.unsplash.com/photo-1562273138-f46be4ebdf33?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                'https://images.unsplash.com/photo-1618615099365-8330e38d5d57?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D'
+            ],
+            gender: 'female'
+        }, {
+            id: 22,
+            category: 'shoes',
+            name: 'AMEX Grace Loafer',
+            short: 'Refined loafer for the modern woman.',
+            story: 'Soft leather, elegant stitching, and a comfortable fit. Perfect for work or weekend.',
+            colors: ['Black', 'Brown', 'Blush'],
+            sizes: [36, 37, 38, 39, 40, 41],
+            images: [
+                'https://images.unsplash.com/photo-1677922336239-d6978d0d2af2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2FuZGFsfGVufDB8fDB8fHww',
+                'https://images.unsplash.com/photo-1741783895531-ccc860eb946a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'female'
+        }, {
+            id: 23,
+            category: 'shoes',
+            name: 'AMEX Slingback Heel',
+            short: 'Elegant slingback for a polished look.',
+            story: 'Leather slingback with a comfortable heel height. Sophisticated and easy to wear.',
+            colors: ['Black', 'Nude', 'Gold'],
+            sizes: [36, 37, 38, 39, 40],
+            images: [
+                'https://images.unsplash.com/photo-1619510331283-a46c425e48bb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8SEFORCUyMG1hZGUlMjBzYW5kYWx8ZW58MHx8MHx8fDA%3D',
+                'https://images.unsplash.com/photo-1618615099365-8330e38d5d57?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D'
+            ],
+            gender: 'female'
+        }, {
+            id: 24,
+            category: 'newarrivals',
+            name: 'AMEX New Era Slide',
+            short: 'Fresh design for the new season.',
+            story: 'Our latest slide features a bold new silhouette and premium leather construction.',
+            colors: ['Black', 'White', 'Wine'],
+            sizes: [38, 39, 40, 41, 42, 43],
+            images: [
+                'https://images.unsplash.com/photo-1753346426105-988a9e3c4aa5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fEhBTkQlMjBtYWRlJTIwc2FuZGFsfGVufDB8fDB8fHww',
+                'https://images.unsplash.com/photo-1651782500354-c907f5e69b71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Ymlya2Vuc3RvY2t8ZW58MHx8MHx8fDA%3D'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 25,
+            category: 'newarrivals',
+            name: 'AMEX Fusion Sandal',
+            short: 'Modern meets tradition.',
+            story: 'A fusion of contemporary design and traditional craftsmanship. Unique and stylish.',
+            colors: ['Brown', 'Black', 'Tan'],
+            sizes: [38, 39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1501851602203-f40cf2f11ba9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://plus.unsplash.com/premium_photo-1699555730185-06ae7d1e0b4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8SEFORCUyMG1hZGUlMjBzYW5kYWx8ZW58MHx8MHx8fDA%3D'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 26,
+            category: 'newarrivals',
+            name: 'AMEX Urban Sneaker',
+            short: 'Street-ready sneaker with premium materials.',
+            story: 'Leather and mesh upper, cushioned sole, and a modern silhouette for the urban scene.',
+            colors: ['White', 'Black', 'Gray'],
+            sizes: [38, 39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1651782500354-c907f5e69b71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Ymlya2Vuc3RvY2t8ZW58MHx8MHx8fDA%3D',
+                'https://images.unsplash.com/photo-1753346426105-988a9e3c4aa5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fEhBTkQlMjBtYWRlJTIwc2FuZGFsfGVufDB8fDB8fHww'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 27,
+            category: 'newarrivals',
+            name: 'AMEX Luxe Loafer',
+            short: 'Elevated loafer for the discerning individual.',
+            story: 'Hand-stitched details, premium leather, and a comfortable fit. A new classic.',
+            colors: ['Black', 'Brown', 'Wine'],
+            sizes: [38, 39, 40, 41, 42, 43],
+            images: [
+                'https://plus.unsplash.com/premium_photo-1699555730185-06ae7d1e0b4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8SEFORCUyMG1hZGUlMjBzYW5kYWx8ZW58MHx8MHx8fDA%3D',
+                'https://images.unsplash.com/photo-1501851602203-f40cf2f11ba9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D'
+            ],
+            gender: 'unisex'
+        }, {
+            id: 28,
+            category: 'newarrivals',
+            name: 'AMEX Heritage Boot',
+            short: 'Classic boot with a contemporary touch.',
+            story: 'Ankle boot crafted from premium leather with a comfortable heel and durable sole.',
+            colors: ['Brown', 'Black'],
+            sizes: [38, 39, 40, 41, 42, 43, 44],
+            images: [
+                'https://images.unsplash.com/photo-1501851602203-f40cf2f11ba9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+                'https://plus.unsplash.com/premium_photo-1699555730185-06ae7d1e0b4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8SEFORCUyMG1hZGUlMjBzYW5kYWx8ZW58MHx8MHx8fDA%3D'
+            ],
+            gender: 'unisex'
+        }];
+
+        // ============================================================
+        // CART
+        // ============================================================
+        let cart = JSON.parse(localStorage.getItem('amexCart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('amexCart', JSON.stringify(cart));
+            updateCartBadge();
+        }
+
+        function updateCartBadge() {
+            document.getElementById('cartBadge').textContent = cart.reduce((sum, i) => sum + i.quantity, 0);
+        }
+
+        function addToCart(productId, color, size, qty = 1) {
+            const exist = cart.find(i => i.productId === productId && i.color === color && i.size === size);
+            if (exist) {
+                exist.quantity += qty;
+            } else {
+                cart.push({ productId, color, size, quantity: qty });
+            }
+            saveCart();
+            showToast('Added to cart ✨');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+            renderCart();
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('show'), 2600);
+        }
+
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
+        const pages = document.querySelectorAll('.page');
+        const allNavLinks = document.querySelectorAll('[data-page]');
+        let currentPage = 'home';
+
+        function navigateTo(page, productId = null) {
+            currentPage = page;
+            pages.forEach(p => p.classList.remove('active'));
+            const target = document.getElementById(page);
+            if (target) target.classList.add('active');
+
+            allNavLinks.forEach(l => l.classList.remove('active'));
+            document.querySelectorAll(`[data-page="${page}"]`).forEach(l => l.classList.add('active'));
+
+            if (page === 'home') {
+                initHomeSlider();
+            } else if (page === 'slippers') {
+                initSlider('slippersSlider', homeSlides);
+                renderCategory('slippers', 'slippersGrid', 'slippersFilter');
+            } else if (page === 'sandals') {
+                initSlider('sandalsSlider', homeSlides);
+                renderCategory('sandals', 'sandalsGrid', 'sandalsFilter');
+            } else if (page === 'shoes') {
+                initSlider('shoesSlider', homeSlides);
+                renderCategory('shoes', 'shoesGrid', 'shoesFilter');
+            } else if (page === 'newarrivals') {
+                initSlider('newarrivalsSlider', homeSlides);
+                renderCategory('newarrivals', 'newarrivalsGrid', 'newarrivalsFilter');
+            } else if (page === 'product' && productId) {
+                renderProductDetail(productId);
+            } else if (page === 'cart') {
+                renderCart();
+            } else if (page === 'about') {}
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.body.addEventListener('click', e => {
+            const link = e.target.closest('[data-page]');
+            if (link && link.dataset.page) {
+                e.preventDefault();
+                navigateTo(link.dataset.page);
+            }
+        });
+
+        // ============================================================
+        // HAMBURGER
+        // ============================================================
+        const hamburger = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+        const navBackdrop = document.getElementById('navBackdrop');
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            navBackdrop.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active', isOpen);
+            navBackdrop.classList.toggle('active', isOpen);
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+        });
+        navBackdrop.addEventListener('click', closeMenu);
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) closeMenu();
+            });
+        });
+
+        // ============================================================
+        // SLIDER
+        // ============================================================
+        function initSlider(id, slides) {
+            const container = document.getElementById(id);
+            if (!container) return;
+            if (container._interval) clearInterval(container._interval);
+
+            container.innerHTML = '';
+            slides.forEach((s, i) => {
+                const div = document.createElement('div');
+                div.className = `slide ${i === 0 ? 'active' : ''}`;
+                div.innerHTML = `
+                        <div class="slide-bg" style="background-image:url('${s.image}')"></div>
+                        <div class="slide-content">
+                            <span class="eyebrow">${s.eyebrow || 'AMEX Footwear'}</span>
+                            <h2>${s.headline}</h2>
+                            <p>${s.subheadline}</p>
+                            <button class="btn" onclick="navigateTo('${s.link}')">${s.btnText}</button>
+                        </div>
+                    `;
+                container.appendChild(div);
+            });
+
+            const dots = document.createElement('div');
+            dots.className = 'slide-dots';
+            slides.forEach((_, i) => {
+                const d = document.createElement('span');
+                if (i === 0) d.classList.add('active');
+                d.addEventListener('click', () => goToSlide(i));
+                dots.appendChild(d);
+            });
+            container.appendChild(dots);
+
+            let cur = 0;
+            const all = container.querySelectorAll('.slide');
+            const dotEls = dots.querySelectorAll('span');
+
+            function goToSlide(i) {
+                clearInterval(container._interval);
+                all[cur].classList.remove('active');
+                dotEls[cur].classList.remove('active');
+                cur = i;
+                all[cur].classList.add('active');
+                dotEls[cur].classList.add('active');
+                startAuto();
+            }
+
+            function startAuto() {
+                container._interval = setInterval(() => {
+                    all[cur].classList.remove('active');
+                    dotEls[cur].classList.remove('active');
+                    cur = (cur + 1) % all.length;
+                    all[cur].classList.add('active');
+                    dotEls[cur].classList.add('active');
+                }, 5500);
+            }
+            startAuto();
+            container._goToSlide = goToSlide;
+        }
+
+        const homeSlides = [{
+            image: 'https://images.unsplash.com/photo-1501851602203-f40cf2f11ba9?w=1600&h=1000&fit=crop&auto=format&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNhbmRhbHxlbnwwfHwwfHx8MA%3D%3D',
+            eyebrow: 'Handcrafted in Abuja',
+            headline: 'Walk in Confidence',
+            subheadline: 'Premium leather footwear crafted for those who value style and quality.',
+            btnText: 'Explore Collection',
+            link: 'slippers'
+        }, {
+            image: 'https://plus.unsplash.com/premium_photo-1699555730185-06ae7d1e0b4f?w=1600&h=1000&fit=crop&auto=format&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8SEFORCUyMG1hZGUlMjBzYW5kYWx8ZW58MHx8MHx8fDA%3D',
+            eyebrow: 'New Season',
+            headline: 'Designed for Every Journey',
+            subheadline: 'From casual outings to special occasions, AMEX completes every step.',
+            btnText: 'Shop Now',
+            link: 'sandals'
+        }, {
+            image: 'https://images.unsplash.com/photo-1753346426105-988a9e3c4aa5?w=1600&h=1000&fit=crop&auto=format&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fEhBTkQlMjBtYWRlJTIwc2FuZGFsfGVufDB8fDB8fHww',
+            eyebrow: 'Him & Her',
+            headline: 'Made for Him. Made for Her.',
+            subheadline: 'Premium slippers, sandals, and shoes for every lifestyle.',
+            btnText: 'Discover More',
+            link: 'shoes'
+        }];
+
+        function initHomeSlider() {
+            initSlider('homeSlider', homeSlides);
+        }
+
+        // ============================================================
+        // CATEGORY RENDER (with gender filter - no price)
+        // ============================================================
+        function renderCategory(category, gridId, filterId) {
+            const grid = document.getElementById(gridId);
+            const filterBar = document.getElementById(filterId);
+            if (!grid) return;
+
+            filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    applyFilter(category, gridId, this.dataset.filter);
+                });
+            });
+
+            applyFilter(category, gridId, 'all');
+        }
+
+        function applyFilter(category, gridId, filter) {
+            const grid = document.getElementById(gridId);
+            let filtered = products.filter(p => p.category === category);
+
+            if (filter === 'men') {
+                filtered = filtered.filter(p => p.gender === 'male' || p.gender === 'unisex');
+            } else if (filter === 'women') {
+                filtered = filtered.filter(p => p.gender === 'female' || p.gender === 'unisex');
+            }
+
+            grid.innerHTML = filtered.map(p => `
+                    <div class="product-card" onclick="quickView(${p.id})">
+                        <img src="${p.images[0]}" alt="${p.name}" loading="lazy">
+                        <div class="product-card-body">
+                            <h4>${p.name}</h4>
+                            <p>${p.short}</p>
+                            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();quickView(${p.id})">Quick View</button>
+                        </div>
+                    </div>
+                `).join('');
+        }
+
+        // ============================================================
+        // QUICK VIEW MODAL (no price)
+        // ============================================================
+        function quickView(pid) {
+            const p = products.find(x => x.id === pid);
+            if (!p) return;
+            const modal = document.getElementById('quickViewModal');
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                    <img src="${p.images[0]}" alt="${p.name}" loading="lazy">
+                    <div>
+                        <h2 style="color:var(--blue-deep);">${p.name}</h2>
+                        <p style="margin-top:0.5rem;">${p.story}</p>
+                        <div style="margin-top:1rem;"><strong>Color:</strong> <span id="qvColor">${p.colors[0]}</span></div>
+                        <div class="color-options" id="qvColors">${p.colors.map(c => `<span class="color-swatch" style="background:${c.toLowerCase()};" data-color="${c}"></span>`).join('')}</div>
+                        <div><strong>Size:</strong> <span id="qvSize">${p.sizes[0]}</span></div>
+                        <div class="size-options" id="qvSizes">${p.sizes.map(s => `<span class="size-box" data-size="${s}">${s}</span>`).join('')}</div>
+                        <div class="quantity-selector">
+                            <button class="qty-btn" id="qvMinus">−</button>
+                            <span class="qty-value" id="qvQty">1</span>
+                            <button class="qty-btn" id="qvPlus">+</button>
+                        </div>
+                        <button class="btn btn-primary" id="qvAddCart">Add to Cart</button>
+                        <button class="btn btn-whatsapp" onclick="orderWhatsAppSingle(${p.id})" style="margin-top:0.6rem;">Order via WhatsApp</button>
+                    </div>
+                `;
+
+            let col = p.colors[0],
+                size = p.sizes[0],
+                qty = 1;
+
+            function update() {
+                document.getElementById('qvColor').textContent = col;
+                document.getElementById('qvSize').textContent = size;
+                document.getElementById('qvQty').textContent = qty;
+                document.querySelectorAll('#qvColors .color-swatch').forEach(el => el.classList.toggle('active', el.dataset
+                    .color === col));
+                document.querySelectorAll('#qvSizes .size-box').forEach(el => el.classList.toggle('active', el.dataset.size ==
+                    size));
+            }
+
+            document.getElementById('qvColors').addEventListener('click', e => {
+                if (e.target.classList.contains('color-swatch')) { col = e.target.dataset.color;
+                    update(); }
+            });
+            document.getElementById('qvSizes').addEventListener('click', e => {
+                if (e.target.classList.contains('size-box')) { size = e.target.dataset.size;
+                    update(); }
+            });
+            document.getElementById('qvPlus').addEventListener('click', () => { qty++;
+                update(); });
+            document.getElementById('qvMinus').addEventListener('click', () => { if (qty > 1) qty--;
+                update(); });
+            document.getElementById('qvAddCart').addEventListener('click', () => {
+                addToCart(p.id, col, size, qty);
+                modal.classList.remove('active');
+            });
+
+            modal.classList.add('active');
+            update();
+        }
+
+        document.querySelector('.modal-close').addEventListener('click', () => {
+            document.getElementById('quickViewModal').classList.remove('active');
+        });
+        document.getElementById('quickViewModal').addEventListener('click', e => {
+            if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+        });
+
+        // ============================================================
+        // PRODUCT DETAIL (no price)
+        // ============================================================
+        function renderProductDetail(pid) {
+            const p = products.find(x => x.id === pid);
+            if (!p) return navigateTo('home');
+            const cont = document.getElementById('productDetailContainer');
+
+            cont.innerHTML = `
+                    <a href="#" data-page="${p.category}" style="display:inline-block;margin-bottom:1.5rem;color:var(--gold);font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;">← Back</a>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;">
+                        <div>
+                            <div style="border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);"><img id="mainImage" src="${p.images[0]}" alt="${p.name}" style="width:100%;aspect-ratio:1/1;object-fit:cover;"></div>
+                            <div style="display:flex;gap:0.8rem;margin-top:1rem;flex-wrap:wrap;">${p.images.map((img,i) => `
+                                <img src="${img}" class="gallery-thumb ${i===0?'active':''}" alt="${p.name} view ${i+1}" style="width:70px;height:70px;object-fit:cover;border-radius:12px;cursor:pointer;opacity:${i===0?1:0.5};border:2px solid ${i===0?'var(--gold)':'transparent'};transition:var(--transition);" onclick="document.getElementById('mainImage').src='${img}';document.querySelectorAll('.gallery-thumb').forEach(t=>{t.style.opacity='0.5';t.style.borderColor='transparent';});this.style.opacity='1';this.style.borderColor='var(--gold)';">
+                            `).join('')}</div>
+                        </div>
+                        <div class="product-info">
+                            <h2 style="color:var(--blue-deep);">${p.name}</h2>
+                            <p>${p.story}</p>
+                            <div style="margin-top:1.2rem;"><strong>Color:</strong> <span id="detailColor">${p.colors[0]}</span></div>
+                            <div class="color-options" id="detailColors">${p.colors.map(c => `<span class="color-swatch" style="background:${c.toLowerCase()};" data-color="${c}"></span>`).join('')}</div>
+                            <div><strong>Size:</strong> <span id="detailSize">${p.sizes[0]}</span></div>
+                            <div class="size-options" id="detailSizes">${p.sizes.map(s => `<span class="size-box" data-size="${s}">${s}</span>`).join('')}</div>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" id="detailMinus">−</button>
+                                <span class="qty-value" id="detailQty">1</span>
+                                <button class="qty-btn" id="detailPlus">+</button>
+                            </div>
+                            <button class="btn btn-primary" id="detailAddCart">Add to Cart</button>
+                            <button class="btn btn-whatsapp" id="detailWhatsApp">Order via WhatsApp</button>
+                        </div>
+                    </div>
+                    <div style="margin-top:3rem;max-width:640px;">
+                        <h3 style="color:var(--blue-deep);">Product Details</h3>
+                        <div class="stitch left"></div>
+                        <p>Genuine leather, soft inner sole, anti‑slip outsole, lightweight, long‑lasting finish. Nationwide shipping available.</p>
+                    </div>
+                    <div class="mobile-order-bar">
+                        <button class="btn btn-primary" id="mobileAddCart">Add to Cart</button>
+                        <button class="btn btn-whatsapp" id="mobileWhatsApp">Order Now</button>
+                    </div>
+                `;
+
+            let col = p.colors[0],
+                size = p.sizes[0],
+                qty = 1;
+
+            function upd() {
+                document.getElementById('detailColor').textContent = col;
+                document.getElementById('detailSize').textContent = size;
+                document.getElementById('detailQty').textContent = qty;
+                document.querySelectorAll('#detailColors .color-swatch').forEach(el => el.classList.toggle('active', el.dataset
+                    .color === col));
+                document.querySelectorAll('#detailSizes .size-box').forEach(el => el.classList.toggle('active', el.dataset.size ==
+                    size));
+            }
+
+            document.getElementById('detailColors').addEventListener('click', e => {
+                if (e.target.classList.contains('color-swatch')) { col = e.target.dataset.color;
+                    upd(); }
+            });
+            document.getElementById('detailSizes').addEventListener('click', e => {
+                if (e.target.classList.contains('size-box')) { size = e.target.dataset.size;
+                    upd(); }
+            });
+            document.getElementById('detailPlus').addEventListener('click', () => { qty++;
+                upd(); });
+            document.getElementById('detailMinus').addEventListener('click', () => { if (qty > 1) qty--;
+                upd(); });
+
+            document.getElementById('detailAddCart').addEventListener('click', () => addToCart(p.id, col, size, qty));
+            document.getElementById('detailWhatsApp').addEventListener('click', () => orderWhatsAppSingle(p.id, col, size,
+                qty));
+            document.getElementById('mobileAddCart').addEventListener('click', () => addToCart(p.id, col, size, qty));
+            document.getElementById('mobileWhatsApp').addEventListener('click', () => orderWhatsAppSingle(p.id, col, size,
+                qty));
+
+            upd();
+        }
+
+        // ============================================================
+        // WHATSAPP ORDER (no price)
+        // ============================================================
+        function orderWhatsAppSingle(pid, col, size, qty) {
+            const p = products.find(x => x.id === pid);
+            const msg =
+                `Hello AMEX, I'd like to order:%0A• ${p.name} - ${col || 'Black'}, Size ${size || 40}, Qty ${qty || 1}%0A%0AName: %0APhone: %0AAddress: `;
+            window.open(`https://wa.me/2349063347739?text=${msg}`, '_blank');
+        }
+
+        // ============================================================
+        // CART PAGE (no price)
+        // ============================================================
+        function renderCart() {
+            const cont = document.getElementById('cartItemsContainer');
+            const checkout = document.getElementById('cartCheckout');
+            if (!cart.length) {
+                cont.innerHTML = '<p style="text-align:center;color:var(--muted);padding:2rem 0;">Your cart is empty. Start shopping!</p>';
+                checkout.innerHTML = '';
+                return;
+            }
+
+            cont.innerHTML = cart.map((item, i) => {
+                const p = products.find(x => x.id === item.productId);
+                if (!p) return '';
+                return `
+                        <div class="cart-item">
+                            <img src="${p.images[0]}" alt="${p.name}">
+                            <div class="cart-item-details">
+                                <h4>${p.name}</h4>
+                                <p>Color: ${item.color} | Size: ${item.size} | Qty: ${item.quantity}</p>
+                            </div>
+                            <span class="cart-item-remove" onclick="removeFromCart(${i})">Remove</span>
+                        </div>
+                    `;
+            }).join('');
+
+            const itemsMsg = cart.map(i => {
+                const p = products.find(x => x.id === i.productId);
+                return `• ${p.name} - ${i.color}, Size ${i.size}, Qty ${i.quantity}`;
+            }).join('%0A');
+            const fullMsg =
+                `Hello AMEX, I would like to place an order.%0A%0AProducts:%0A${itemsMsg}%0A%0AName: %0APhone: %0ADelivery Address: `;
+
+            checkout.innerHTML = `
+                    <button class="btn btn-primary" onclick="window.open('https://wa.me/2349063347739?text=${fullMsg}','_blank')">Checkout on WhatsApp</button>
+                    <div class="message-preview">${fullMsg.replace(/%0A/g,'\n')}</div>
+                `;
+        }
+
+        // ============================================================
+        // CUSTOM BUILD FORM
+        // ============================================================
+        let selectedType = '';
+
+        function selectOption(el) {
+            const parent = el.closest('div');
+            parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedType = el.dataset.value;
+            document.getElementById('footwearType').value = selectedType;
+            document.getElementById('typeError').style.display = 'none';
+        }
+
+        function submitCustomOrder(e) {
+            e.preventDefault();
+            if (!selectedType) {
+                document.getElementById('typeError').style.display = 'block';
+                document.getElementById('typeError').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            const size = document.getElementById('footwearSize').value;
+            const colour = document.getElementById('footwearColour').value;
+            const leather = document.getElementById('leatherType').value;
+            const details = document.getElementById('customDetails').value.trim();
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+
+            if (!size || !colour || !leather || !name || !phone) {
+                showToast('Please fill in all required fields');
+                return;
+            }
+
+            let msg = 'Hello AMEX Footwear! 👋%0A%0A';
+            msg += 'I would like to place a CUSTOM BUILD order.%0A%0A';
+            msg += '📌 *Footwear Type:* ' + selectedType + '%0A';
+            msg += '📏 *Size:* ' + size + '%0A';
+            msg += '🎨 *Colour:* ' + colour + '%0A';
+            msg += '🧵 *Material:* ' + leather + '%0A';
+            if (details) msg += '📝 *Design Details:* ' + details + '%0A';
+            msg += '%0A👤 *Name:* ' + name + '%0A';
+            msg += '📱 *Phone:* ' + phone + '%0A';
+            msg += '%0A---%0A';
+            msg += 'Please send any reference images or sketches via WhatsApp.';
+            msg += '%0A%0AThank you! 🙏';
+
+            const encoded = encodeURIComponent(msg);
+            document.getElementById('customForm').style.display = 'none';
+            document.getElementById('customSuccess').style.display = 'block';
+            document.getElementById('waFallbackLink').href = 'https://wa.me/2349063347739?text=' + encoded;
+            window.open('https://wa.me/2349063347739?text=' + encoded, '_blank');
+        }
+
+        function resetCustomForm() {
+            document.getElementById('customForm').style.display = 'block';
+            document.getElementById('customSuccess').style.display = 'none';
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            selectedType = '';
+            document.getElementById('footwearType').value = '';
+            document.getElementById('footwearSize').value = '';
+            document.getElementById('footwearColour').value = '';
+            document.getElementById('leatherType').value = '';
+            document.getElementById('customDetails').value = '';
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('typeError').style.display = 'none';
+            window.scrollTo({ top: document.getElementById('custom-build').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        updateCartBadge();
+        initHomeSlider();
+
+        if (window.location.hash.startsWith('#product/')) {
+            const id = parseInt(window.location.hash.split('/')[1]);
+            navigateTo('product', id);
+        }
+    </script>
+
+</body>
+</html>
